@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sushi Shop</title>
+
+	<!-- Styles -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header__row">
+				<div class="logo">Sushi Shop</div>
+				<nav class="header__nav">
+					<ul class="header__nav-list">
+						<li><a href="./../login.html">Вход</a></li>
+						<li><a href="./../html/admin.html">Панель администратора</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<main class="admin">
+		<aside class="admin__sidebar">
+			<nav class="admin__nav">
+				<a href="#" class="admin__nav-link admin__nav-link--active" data-tab="add-product">Добавить товар</a>
+				<a href="#" class="admin__nav-link" data-tab="products">Товар</a>
+				<a href="#" class="admin__nav-link" data-tab="users">Пользователи</a>
+				<a href="#" class="admin__nav-link" data-tab="order-history">История заказов</a>
+			</nav>
+		</aside>
+
+		<section class="admin__content">
+			<div id="add-product" class="admin__tab admin__tab--active">
+				<h2 class="admin__title">Добавить товар</h2>
+				<form class="admin__form">
+					<div class="mb-3">
+						<label for="productTitle" class="form-label">Название товара</label>
+						<input type="text" class="form-control" id="productTitle" placeholder="Введите название товара"
+							required>
+					</div>
+					<div class="mb-3">
+						<label for="productPrice" class="form-label">Цена</label>
+						<input type="number" class="form-control" id="productPrice" placeholder="Введите цену товара"
+							required>
+					</div>
+					<div class="mb-3">
+						<label for="productWeight" class="form-label">Вес</label>
+						<input type="number" class="form-control" id="productWeight" placeholder="Введите вес товара"
+							required>
+					</div>
+					<div class="mb-3">
+						<label for="productImage" class="form-label">Изображение</label>
+						<input type="file" class="form-control" id="productImage" accept="image/*">
+					</div>
+					<button type="submit" class="btn btn-primary">Добавить товар</button>
+				</form>
+			</div>
+
+			<div id="products" class="admin__tab">
+				<h2 class="admin__title">Товар</h2>
+				<p>Список товаров отображается здесь.</p>
+			</div>
+
+			<div id="users" class="admin__tab">
+				<h2 class="admin__title">Пользователи</h2>
+				<p>Список пользователей отображается здесь.</p>
+			</div>
+
+			<div id="order-history" class="admin__tab">
+				<h2 class="admin__title">История заказов</h2>
+				<p>История заказов отображается здесь.</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__copyright">
+				<h1>&#169; Sushi Shop</h1>
+			</div>
+		</div>
+	</footer>
+	<script src="./js/index.bundle.js"></script>
+</body>
+
+</html>
