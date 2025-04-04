@@ -1,3 +1,6 @@
+import toggleCartStatus from "./toggleCartStatus";
+import calcCartPriceAndDelivery from "./calcCartPrice";
+
 function getCartInfo() {
 	const cartWrapper = document.querySelector(".cart-wrapper");
 
