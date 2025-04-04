@@ -10,6 +10,11 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 50px 0;
+
+	.mb-5 {
+		margin-bottom: 0 !important;
+	}
 }
 
 .footer {
