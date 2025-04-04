@@ -5,6 +5,13 @@ body {
 	flex-direction: column;
 }
 
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .footer {
 	margin-top: auto;
 }
