@@ -63,8 +63,11 @@
 							<h5 class="card-title">Оформить заказ</h5>
 							<form>
 								<div class="form-group">
-									<input type="tel" class="form-control" placeholder="Ваш номер телефона" required
-										name="phone">
+									<input type="text" class="form-control" placeholder="Ваше имя" required name="name"
+										minlength="2" pattern="[А-Яа-яA-Za-z\s]+">
+
+									<input type="tel" class="form-control mt-2" placeholder="Ваш номер телефона"
+										required name="phone">
 
 									<input type="email" class="form-control mt-2" placeholder="Ваш email" required
 										name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
