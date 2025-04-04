@@ -44,7 +44,8 @@
 	height: 26px;
 	text-align: center;
 
-	& .items__control, .items__current {
+	& .items__control,
+	.items__current {
 		width: 30px;
 	}
 }
@@ -73,4 +74,8 @@
 
 .none {
 	display: none;
+}
+
+.form-group {
+	margin-bottom: 1rem;
 }
