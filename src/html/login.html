@@ -13,20 +13,7 @@
 </head>
 
 <body>
-	<header class="header">
-		<div class="container">
-			<div class="header__row">
-				<div class="logo"><a href="./index.html">Sushi Shop</a></div>
-				<nav class="header__nav">
-					<ul class="header__nav-list">
-						<li><a href="./login.html">Вход</a></li>
-						<li><a href="./admin.html">Панель администратора</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
-
+	@@include('blocks/header.html')
 	<main>
 		<div class="auth-container">
 			<div class="card shadow">
@@ -51,14 +38,7 @@
 			</div>
 		</div>
 	</main>
-
-	<footer class="footer">
-		<div class="container">
-			<div class="footer__copyright">
-				<h1>&#169; Sushi Shop</h1>
-			</div>
-		</div>
-	</footer>
+	@@include('blocks/footer.html')
 	<script src="./js/index.bundle.js"></script>
 </body>
 
