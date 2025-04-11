@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 // DB SETTINGS
 define('DB_HOST', 'database');
 define('DB_NAME', 'sushistore');
