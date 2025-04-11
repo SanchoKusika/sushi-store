@@ -2,6 +2,8 @@
 require("config.php");
 require("db.php");
 
+$products = R::findAll('products');
+
 include(ROOT . "templates/head.tpl");
 include(ROOT . "templates/header.tpl");
 ?>
@@ -9,109 +11,42 @@ include(ROOT . "templates/header.tpl");
 <main>
 	<div class="container mb-5">
 		<div class="row">
-			<div class="col-md-8">
+		<div class="col-md-8">
 				<div class="row">
-					<div class="col-md-6">
-						<div class="card mb-4" data-id="1">
-							<img class="product-img" src="<?= HOST ?>assets/img/roll/california-hit.jpg" alt="" />
-							<div class="card-body text-center">
-								<h4 class="item-title">Филадельфия хит ролл</h4>
-								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
+					<?php foreach ($products as $product): ?>
+						<div class="col-md-6">
+							<div class="card mb-4" data-id="<?= $product->id ?>">
+								<img class="product-img" src="<?= HOST . $product->image ?>" alt="<?= htmlspecialchars($product->title) ?>" />
+								<div class="card-body text-center">
+									<h4 class="item-title"><?= htmlspecialchars($product->title) ?></h4>
+									<p><small data-items-in-box class="text-muted">6 шт.</small></p>
 
-								<div class="details-wrapper">
-									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
+									<div class="details-wrapper">
+										<div class="items counter-wrapper">
+											<div class="items__control" data-action="minus">-</div>
+											<div class="items__current" data-counter>1</div>
+											<div class="items__control" data-action="plus">+</div>
+										</div>
+
+										<div class="price">
+											<div class="price__weight"><?= htmlspecialchars($product->weight) ?>г.</div>
+											<div class="price__currency"><?= htmlspecialchars($product->price) ?> ₽</div>
+										</div>
 									</div>
 
-									<div class="price">
-										<div class="price__weight">180г.</div>
-										<div class="price__currency">300 ₽</div>
-									</div>
+									<button data-cart type="button" class="btn btn-block btn-outline-warning">
+										+ в корзину
+									</button>
 								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ в корзину</button>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="card mb-4" data-id="2">
-							<img class="product-img" src="<?= HOST ?>assets/img/roll/california-tempura.jpg" alt="" />
-							<div class="card-body text-center">
-								<h4 class="item-title">Калифорния темпура</h4>
-								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
-								<div class="details-wrapper">
-									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
-									</div>
-
-									<div class="price">
-										<div class="price__weight">205г.</div>
-										<div class="price__currency">250 ₽</div>
-									</div>
-								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ в корзину</button>
-							</div>
+					<?php endforeach; ?>
+					
+					<?php if (empty($products)): ?>
+						<div class="col-12 fs-1">
+							<p>Товары отсутствуют</p>
 						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="card mb-4" data-id="3">
-							<img class="product-img" src="<?= HOST ?>assets/img/roll/zapech-california.jpg" alt="" />
-							<div class="card-body text-center">
-								<h4 class="item-title">Запеченый ролл &#171;Калифорния&#187;</h4>
-								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
-								<div class="details-wrapper">
-									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
-									</div>
-
-									<div class="price">
-										<div class="price__weight">182г.</div>
-										<div class="price__currency">230 ₽</div>
-									</div>
-								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ в корзину</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="card mb-4" data-id="4">
-							<img class="product-img" src="<?= HOST ?>assets/img/roll/philadelphia.jpg" alt="" />
-							<div class="card-body text-center">
-								<h4 class="item-title">Филадельфия</h4>
-								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
-								<div class="details-wrapper">
-									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
-									</div>
-
-									<div class="price">
-										<div class="price__weight">230г.</div>
-										<div class="price__currency">320 ₽</div>
-									</div>
-								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">
-									+ в&#160;корзину
-								</button>
-							</div>
-						</div>
-					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 
