@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sushi Shop</title>
+
+	<!-- Styles -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+	@@include('blocks/header.html')
+	<main>
+		<div class="container my-5">
+			<h2 class="order-title mb-4">История заказов</h2>
+
+			<div class="order-item mb-3">
+				<div class="order-item__img">
+					<img src="./../img/roll/california-hit.jpg" alt="Калифорния хит">
+				</div>
+				<div class="order-item__desc">
+					<div class="order-item__title">Калифорния хит</div>
+					<div class="order-item__weight">180 г</div>
+					<div class="order-item__info">
+						<div class="order-item__quantity">Количество: 2 шт.</div>
+						<div class="order-item__price">Итого: 600 ₽</div>
+						<div class="order-item__delivery">Доставка: 250 ₽</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	@@include('blocks/footer.html')
+	<script src="./js/index.bundle.js"></script>
+</body>
+
+</html>
