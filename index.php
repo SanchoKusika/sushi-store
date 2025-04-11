@@ -12,7 +12,7 @@ include(ROOT . "templates/header.tpl");
 			<div class="col-md-8">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="card mb-4">
+						<div class="card mb-4" data-id="1">
 							<img class="product-img" src="<?= HOST ?>assets/img/roll/california-hit.jpg" alt="" />
 							<div class="card-body text-center">
 								<h4 class="item-title">Филадельфия хит ролл</h4>
@@ -37,7 +37,7 @@ include(ROOT . "templates/header.tpl");
 					</div>
 
 					<div class="col-md-6">
-						<div class="card mb-4">
+						<div class="card mb-4" data-id="2">
 							<img class="product-img" src="<?= HOST ?>assets/img/roll/california-tempura.jpg" alt="" />
 							<div class="card-body text-center">
 								<h4 class="item-title">Калифорния темпура</h4>
@@ -62,7 +62,7 @@ include(ROOT . "templates/header.tpl");
 					</div>
 
 					<div class="col-md-6">
-						<div class="card mb-4">
+						<div class="card mb-4" data-id="3">
 							<img class="product-img" src="<?= HOST ?>assets/img/roll/zapech-california.jpg" alt="" />
 							<div class="card-body text-center">
 								<h4 class="item-title">Запеченый ролл &#171;Калифорния&#187;</h4>
@@ -87,7 +87,7 @@ include(ROOT . "templates/header.tpl");
 					</div>
 
 					<div class="col-md-6">
-						<div class="card mb-4">
+						<div class="card mb-4" data-id="4">
 							<img class="product-img" src="<?= HOST ?>assets/img/roll/philadelphia.jpg" alt="" />
 							<div class="card-body text-center">
 								<h4 class="item-title">Филадельфия</h4>
