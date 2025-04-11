@@ -22,7 +22,7 @@ include(ROOT . "templates/header.tpl");
 					</div>
 					<button type="submit" class="btn btn-primary w-100">Войти</button>
 				</form>
-				<p class="text-center mt-3">Нет аккаунта? <a href="register.html" class="fw-bold">Зарегистрироваться</a></p>
+				<p class="text-center mt-3">Нет аккаунта? <a href="<?= HOST ?>register.php" class="fw-bold">Зарегистрироваться</a></p>
 			</div>
 		</div>
 	</div>
