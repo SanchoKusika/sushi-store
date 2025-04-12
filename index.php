@@ -1,12 +1,47 @@
 <?php
 require("config.php");
 require("db.php");
+require(ROOT . "functions/order.php");
 
 $products = R::findAll('products');
+$orderSuccess = false;
+$orderError = '';
 
-include(ROOT . "templates/head.tpl");
-include(ROOT . "templates/header.tpl");
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_form'])) {
+	if (!isset($_SESSION['user'])) {
+		$orderError = 'Чтобы оформить заказ, войдите в аккаунт.';
+	} else {
+		$name = trim($_POST['name'] ?? '');
+		$phone = trim($_POST['phone'] ?? '');
+		$email = trim($_POST['email'] ?? '');
+		$address = trim($_POST['address'] ?? '');
+		$cartJSON = $_POST['cart'] ?? '';
+		$cartItems = json_decode($cartJSON, true);
+
+		if (!$cartItems || !is_array($cartItems)) {
+			$orderError = 'Корзина пуста или переданы некорректные данные.';
+		} else {
+			$orderId = placeOrder(
+				[
+					'name' => $name,
+					'phone' => $phone,
+					'email' => $email,
+					'address' => $address
+				],
+				$cartItems
+			);
+			if ($orderId) {
+				$orderSuccess = true;
+			} else {
+				$orderError = 'Ошибка при оформлении заказа.';
+			}
+		}
+	}
+}
 ?>
+
+<?php include(ROOT . "templates/head.tpl"); ?>
+<?php include(ROOT . "templates/header.tpl"); ?>
 
 <main>
 	<div class="container mb-5">
@@ -71,14 +106,31 @@ include(ROOT . "templates/header.tpl");
 							</p>
 						</div>
 					</div>
+					<?php if ($orderSuccess): ?>
+						<div class="card-body">
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								Спасибо, ваш заказ оформлен успешно!
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						</div>
+					<?php elseif ($orderError): ?>
+						<div class="card-body">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<?= $orderError; ?>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						</div>
+					<?php endif; ?>
 					<div id="order-form" class="card-body border-top none">
 						<h5 class="card-title">Оформить заказ</h5>
-						<form>
+						<form method="POST" id="orderForm">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Ваше имя" required name="name" minlength="2" pattern="[А-Яа-яA-Za-z\s]+" />
 								<input type="tel" class="form-control mt-2" placeholder="Ваш номер телефона" required name="phone" />
 								<input type="email" class="form-control mt-2" placeholder="Ваш email" required name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
 								<input type="text" class="form-control mt-2" placeholder="Адрес доставки" required name="address" minlength="5" />
+								<input type="hidden" name="cart" id="cartData" value="" />
+								<input type="hidden" name="order_form" value="1" />
 							</div>
 							<button type="submit" class="btn btn-block btn-outline-warning mt-3">Заказать</button>
 						</form>

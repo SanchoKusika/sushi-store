@@ -486,55 +486,20 @@ main .mb-5 {
   font-size: 32px;
 }
 
-.order-title {
-  font-size: 25px;
+.order-history-img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	margin: 0 auto;
 }
-
-.order-item {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #dee2e6;
+.order-history-card {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
-.order-item__img {
-  flex-shrink: 0;
+.order-history-card .card-body {
+	flex-grow: 1;
 }
-.order-item__img img {
-  max-width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-.order-item__desc {
-  flex-grow: 1;
-  margin-left: 20px;
-}
-.order-item__title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-.order-item__weight {
-  font-size: 14px;
-  color: #6c757d;
-  margin-bottom: 10px;
-}
-.order-item__info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.order-item__info .order-item__quantity,
-.order-item__info .order-item__price,
-.order-item__info .order-item__delivery {
-  font-size: 16px;
-  font-weight: 500;
-}
-.order-item__price {
-  color: #eb5a1e;
-}
-
 img {
   max-width: 100%;
   height: auto;
