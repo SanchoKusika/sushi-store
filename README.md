@@ -3,20 +3,17 @@
 -   Gulp,
 -   JS
 
-Установить зависимости:
-
+Install dependencies:
 ```
 npm i
 ```
 
-Зпустить в режиме разработки:
-
+Run in development mode:
 ```
 gulp
 ```
 
-Собрать версию для публикации:
-
+Build production version:
 ```
 gulp docs
 ```
